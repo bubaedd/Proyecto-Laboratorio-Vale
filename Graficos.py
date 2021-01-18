@@ -38,7 +38,9 @@ def graficos():
         pyplot.title("resultados de encuestas")
         pyplot.bar(resultadosEncuesta,height=nSINO,color=colores,width=0.5)
 
+        pyplot.savefig("grafico.jpg")
         pyplot.show()
+
 
 
 
