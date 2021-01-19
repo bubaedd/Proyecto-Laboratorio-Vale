@@ -13,7 +13,7 @@ def encuesta():
     #-----------------    FALTA DEFINIR EL ESQUEMA DEL ARCHIVO PARA FACILITAR LA LECTURA/APERTURRA  ------------------
 
     # Pregunta recorrido, mes y año
-    recorrido = input("Ingresa el recorrido(Ejemplo F08): ")
+    recorrido = input("Ingresa el recorrido(Ejemplo F08): ").upper()
     mes =input("Ingresa el mes en que usaste el recorrido que mencionaste(Ejemplo 10): ")
     año = input("Ingresa el año en el que usaste el recorrido que mencionaste(Ejemplo 2019): ")
     archivo_respuestas.write(recorrido+";"+año+";"+mes+";")
