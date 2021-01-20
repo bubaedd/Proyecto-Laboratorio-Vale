@@ -10,21 +10,99 @@ def EliminarDuplicados(lista):
             fLista.append(element)
     return fLista
 
-#Funcion que retorna el mayor valor en una lista y su indice(evaluar por pregunta el top5)
-# def topFive(lista):
-#     mayorP1=0
-#     mayorP2=0
-#     mayorP3=0
-#     listaRTop=[]
-#     for i in range(len(lista)):
-#         data =lista[i].split(";")
-#         if int(data[1])>mayorP1:
-#             mayorP1=int(data[1])
-#         if  int(data[2])>mayorP2:
-#             mayorP2 = int(data[2])
-#         if int(data[3]) > mayorP3:
-#             mayorP3 = int(data[3])
-#     listaRTop.append(i+';'+str())
+#Funcion que obtiene los viajes más peligrosos segun respuesta p1
+def Top5P1(listaP1,n):
+    auxListaP1 = list(listaP1)
+    auxLista=[]
+    if(n<5):
+        for i in range(n):
+            mayorValor = 0
+            indiceMayor=0
+            for j in range(len(auxListaP1)):
+                data = auxListaP1[j].split(';')
+
+                if int(data[1])>mayorValor and int(data[1])!=0:
+                    mayorValor=int(data[1])
+                    indiceMayor=j
+                    auxLista.append(data[0]+';'+str(mayorValor))
+            auxListaP1.pop(indiceMayor)
+        return auxLista
+
+    if(n>=5):
+        for i in range(5):
+            mayorValor = 0
+            indiceMayor = 0
+            for j in range(len(auxListaP1)):
+                data = auxListaP1[j].split(';')
+                if int(data[1])>mayorValor and int(data[1])!=0:
+                    mayorValor = int(data[1])
+                    indiceMayor = j
+                    auxLista.append(data[0] + ';' + str(mayorValor))
+            auxListaP1.pop(indiceMayor)
+        return auxLista
+
+#Funcion que obtiene los viajes más peligrosos segun respuesta p2
+def Top5P2(lista,n):
+    lista=list(lista)
+    auxListaP2=[]
+    if(n<5):
+        for i in range(n):
+            mayorValor = 0
+            indiceMayor=0
+            for j in range(len(lista)):
+                data = lista[j].split(';')
+                if int(data[2])>mayorValor and int(data[2])!=0:
+                    mayorValor=int(data[2])
+                    indiceMayor=j
+                    auxListaP2.append(data[0]+';'+str(mayorValor))
+            lista.pop(indiceMayor)
+        return auxListaP2
+
+    if(n>=5):
+        for i in range(5):
+            mayorValor = 0
+            indiceMayor = 0
+            for j in range(len(lista)):
+                data = lista[j].split(';')
+                if int(data[2])>mayorValor and int(data[2])!=0:
+                    mayorValor = int(data[2])
+                    indiceMayor = j
+                    auxListaP2.append(data[0] + ';' + str(mayorValor))
+            lista.pop(indiceMayor)
+        return auxListaP2
+
+#Funcion que obtiene los viajes más peligrosos segun respuesta p3
+def Top5P3(lista,n):
+    lista=list(lista)
+    auxLista=[]
+    if(n<5):
+        for i in range(n):
+            mayorValor = 0
+            indiceMayor=0
+            for j in range(len(lista)):
+                data = lista[j].split(';')
+                if int(data[3])>mayorValor and int(data[3])!=0:
+                    mayorValor=int(data[3])
+                    indiceMayor=j
+                    auxLista.append(data[0]+';'+str(mayorValor))
+            lista.pop(indiceMayor)
+        return auxLista
+
+    if(n>=5):
+        for i in range(5):
+            mayorValor = 0
+            indiceMayor = 0
+            for j in range(len(lista)):
+                data = lista[j].split(';')
+                if int(data[3])>mayorValor and int(data[3])!=0:
+                    mayorValor = int(data[3])
+                    indiceMayor = j
+                    auxLista.append(data[3] + ';' + str(mayorValor))
+            lista.pop(indiceMayor)
+        return auxLista
+
+
+
 
 
 
@@ -91,8 +169,70 @@ def graficos():
         #ordenando datos de recorridos y puntajes
         listaRP=[]
         for i in range(len(recorridoF)):
-
             listaRP.append(recorridoF[i]+';'+str(p1[i])+';'+str(p2[i])+';'+str(p3[i]))
+
+        #Obteniendo TOP5
+
+
+        rP1= Top5P1(tuple(listaRP),len(listaRP))
+        rP2= Top5P2(tuple(listaRP),len(listaRP))
+        rP3= Top5P3(tuple(listaRP),len(listaRP))
+
+        #Creación de graficos de barra por pregunta
+
+        #Grafico pregunta1
+
+        #recorridos P1
+        rp1=[]
+        #puntaje P1
+        pP1=[]
+        for i in range(len(rP1)):
+            data = rP1[i].split(";")
+            rp1.append(data[0])
+            pP1.append(int(data[1]))
+
+        pyplot.bar(range(len(rp1)),pP1,edgecolor="red")
+        pyplot.xticks(range(len(rp1)),rp1)
+        pyplot.ylim(min(pP1)-1,max(pP1)+1)
+        pyplot.title("P1")
+        pyplot.savefig("GraficaP1.jpg")
+        pyplot.show()
+
+        # Grafico pregunta2
+
+        # recorridos P2
+        rp2 = []
+        # puntaje P2
+        pP2 = []
+        for i in range(len(rP2)):
+            data = rP2[i].split(";")
+            rp2.append(data[0])
+            pP2.append(int(data[1]))
+
+        pyplot.bar(range(len(rp2)), pP2, edgecolor="red")
+        pyplot.xticks(range(len(rp2)), rp2)
+        pyplot.ylim(min(pP2) - 1, max(pP2) + 1)
+        pyplot.title("P2")
+        pyplot.savefig("GraficaP2.jpg")
+        pyplot.show()
+
+        # Grafico pregunta3
+
+        # recorridos P3
+        rp3 = []
+        # puntaje P3
+        pP3 = []
+        for i in range(len(rP2)):
+            data = rP3[i].split(";")
+            rp3.append(data[0])
+            pP3.append(int(data[1]))
+
+        pyplot.bar(range(len(rp3)), pP3, edgecolor="red")
+        pyplot.xticks(range(len(rp3)), rp3)
+        pyplot.ylim(min(pP3) - 1, max(pP3) + 1)
+        pyplot.title("P3")
+        pyplot.savefig("GraficaP3.jpg")
+        pyplot.show()
 
 
 
