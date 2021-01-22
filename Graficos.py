@@ -24,7 +24,9 @@ def Top5P1(listaP1,n):
                 if int(data[1])>mayorValor and int(data[1])!=0:
                     mayorValor=int(data[1])
                     indiceMayor=j
-                    auxLista.append(data[0]+';'+str(mayorValor))
+                    recorrido = data[0]
+            if mayorValor != 0:
+                auxLista.append(recorrido + ';' + str(mayorValor))
             auxListaP1.pop(indiceMayor)
         return auxLista
 
@@ -37,8 +39,11 @@ def Top5P1(listaP1,n):
                 if int(data[1])>mayorValor and int(data[1])!=0:
                     mayorValor = int(data[1])
                     indiceMayor = j
-                    auxLista.append(data[0] + ';' + str(mayorValor))
+                    recorrido=data[0]
+            if mayorValor !=0:
+                auxLista.append(recorrido + ';' + str(mayorValor))
             auxListaP1.pop(indiceMayor)
+
         return auxLista
 
 #Funcion que obtiene los viajes más peligrosos segun respuesta p2
@@ -54,7 +59,9 @@ def Top5P2(lista,n):
                 if int(data[2])>mayorValor and int(data[2])!=0:
                     mayorValor=int(data[2])
                     indiceMayor=j
-                    auxListaP2.append(data[0]+';'+str(mayorValor))
+                    recorrido = data[0]
+            if mayorValor != 0:
+                auxListaP2.append(recorrido + ';' + str(mayorValor))
             lista.pop(indiceMayor)
         return auxListaP2
 
@@ -67,7 +74,9 @@ def Top5P2(lista,n):
                 if int(data[2])>mayorValor and int(data[2])!=0:
                     mayorValor = int(data[2])
                     indiceMayor = j
-                    auxListaP2.append(data[0] + ';' + str(mayorValor))
+                    recorrido = data[0]
+            if mayorValor != 0:
+                auxListaP2.append(recorrido + ';' + str(mayorValor))
             lista.pop(indiceMayor)
         return auxListaP2
 
@@ -84,7 +93,9 @@ def Top5P3(lista,n):
                 if int(data[3])>mayorValor and int(data[3])!=0:
                     mayorValor=int(data[3])
                     indiceMayor=j
-                    auxLista.append(data[0]+';'+str(mayorValor))
+                    recorrido = data[0]
+            if mayorValor != 0:
+                auxLista.append(recorrido + ';' + str(mayorValor))
             lista.pop(indiceMayor)
         return auxLista
 
@@ -97,7 +108,9 @@ def Top5P3(lista,n):
                 if int(data[3])>mayorValor and int(data[3])!=0:
                     mayorValor = int(data[3])
                     indiceMayor = j
-                    auxLista.append(data[3] + ';' + str(mayorValor))
+                    recorrido = data[0]
+            if mayorValor != 0:
+                auxLista.append(recorrido + ';' + str(mayorValor))
             lista.pop(indiceMayor)
         return auxLista
 
