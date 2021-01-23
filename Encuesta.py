@@ -21,7 +21,7 @@ def encuesta():
     # ---------------    FALTA COMPROBAR QUE LA RESPUESTA SEA SI O NO PARA CADA PREGUNTA    ----------------------
     # Pregunta 1
     print("ACA SE DESCRIBE QUE ES UNA SITUACIÓN DE VIOLENCIA FÍSICA")
-    pregunta1 = input("¿Has vivido o presenciado violencia física dentro de la micro? (Responde con un SI o un NO: ")
+    pregunta1 = input("¿Has vivido o presenciado violencia física dentro de la micro? (Responde con un SI o un NO:) ")
     pregunta = pregunta1.upper()
 
 

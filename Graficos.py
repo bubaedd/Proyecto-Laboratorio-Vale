@@ -207,7 +207,8 @@ def graficos():
         pyplot.bar(range(len(rp1)),pP1,edgecolor="red")
         pyplot.xticks(range(len(rp1)),rp1)
         pyplot.ylim(min(pP1)-1,max(pP1)+1)
-        pyplot.title("P1")
+        pyplot.title("¿Has vivido o presenciado violencia física dentro de la micro?")
+        pyplot.legend(["Respuesta SI"])
         pyplot.savefig("GraficaP1.jpg")
         pyplot.show()
 
@@ -225,7 +226,8 @@ def graficos():
         pyplot.bar(range(len(rp2)), pP2, edgecolor="red")
         pyplot.xticks(range(len(rp2)), rp2)
         pyplot.ylim(min(pP2) - 1, max(pP2) + 1)
-        pyplot.title("P2")
+        pyplot.title("¿Has vivido o presenciado robo de pertenencias dentro de la micro?")
+        pyplot.legend(["Respuesta SI"])
         pyplot.savefig("GraficaP2.jpg")
         pyplot.show()
 
@@ -243,7 +245,8 @@ def graficos():
         pyplot.bar(range(len(rp3)), pP3, edgecolor="red")
         pyplot.xticks(range(len(rp3)), rp3)
         pyplot.ylim(min(pP3) - 1, max(pP3) + 1)
-        pyplot.title("P3")
+        pyplot.title("¿Has vivido o presenciado asalto a mano armada dentro de la micro?")
+        pyplot.legend(["Respuesta SI"])
         pyplot.savefig("GraficaP3.jpg")
         pyplot.show()
 
